@@ -1,7 +1,10 @@
 {
-  "name": "consultant",
+  "name": "agencia",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "8.4.0"
+ },
   "dependencies": {
     "@material-ui/core": "^4.4.2",
     "@material-ui/icons": "^4.2.1",

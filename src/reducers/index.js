@@ -31,15 +31,6 @@ const stateDefault = {
   error: false
 };
 
-// set valor snackbar
-// const fieldsBoolean = (payload) => {
-//   let updatedFields = { ...payload };
-//   const objKey = Object.keys(payload);
-//   _.set(updatedFields,  { [objKey]: payload.value });
-
-//   return updatedFields;
-// }
-
 
 // set chave e valor dos campos 
 const mergeFields = (fields, payload) => {
@@ -108,7 +99,8 @@ const valoresReducers = (state = stateDefault, action) => {
         ...state,
         consultants: consultants,
       }
-    // busca no banco _FULFILLED
+
+    // busca lista carros no banco 
     case `${CARROS}_FULFILLED`:
       return {
         ...state,

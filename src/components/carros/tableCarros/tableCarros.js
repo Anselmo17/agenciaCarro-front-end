@@ -10,6 +10,10 @@ import Paper from '@material-ui/core/Paper';
 // components
 import Button from '@material-ui/core/Button';
 
+//blocks
+import CircularProgress from '@material-ui/core/CircularProgress';
+import ReduxBlockUi from 'react-block-ui/redux';
+
 //icons 
 import DeleteIcon from '@material-ui/icons/Delete';
 
@@ -83,46 +87,53 @@ const TableCarros = ({ listCarros, handle }) => {
 
   return (
     <Paper className={classes.root}>
-      <Table className={classes.table}>
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Descrição do Carro</StyledTableCell>
-            <StyledTableCell align="right">Placa</StyledTableCell>
-            <StyledTableCell align="right">Marca do Carro</StyledTableCell>
-            <StyledTableCell align="right">Ano do Carro</StyledTableCell>
-            <StyledTableCell align="right">Entrada</StyledTableCell>
-            <StyledTableCell align="right">action</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {listCarros && listCarros.length > 0 ? orderBy(listCarros).map((car, index) => (
-            <StyledTableRow key={index} className={classes.contents}>
-              <StyledTableCell component="th" scope="row">
-                {car.marcaDescricao}
-              </StyledTableCell>
-              <StyledTableCell align="right">{car.placa}</StyledTableCell>
-              <StyledTableCell align="right">{car['index.marca']}</StyledTableCell>
-              <StyledTableCell align="right">{car.anoCarro}</StyledTableCell>
-              <StyledTableCell align="right">{formatDate(car.created)}</StyledTableCell>
-              <StyledTableCell align="right">
-                <Button variant="contained"
-                  color="secondary"
-                  className={classes.button}
-                  onClick={() => handle.deleteById(car.idCarro)}
-                >
-                  <DeleteIcon
-                    fontSize="small"
-                  />
-                </Button>
-              </StyledTableCell>
-            </StyledTableRow>
-          )) : <StyledTableRow>
-              <StyledTableCell align="center"></StyledTableCell>
-              <StyledTableCell align="center"></StyledTableCell>
-              <StyledTableCell align="center">Nenhum Dado Encontrado</StyledTableCell>
-            </StyledTableRow>}
-        </TableBody>
-      </Table>
+      <ReduxBlockUi
+        tag='div'
+        block={[/_REJECTED/]}
+        unblock={[/_FULFILLED/, /_REJECTED/]}
+        loader={<CircularProgress size={80} thickness={5} color='primary' />}
+      >
+        <Table className={classes.table}>
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Descrição do Carro</StyledTableCell>
+              <StyledTableCell align="right">Placa</StyledTableCell>
+              <StyledTableCell align="right">Marca do Carro</StyledTableCell>
+              <StyledTableCell align="right">Ano do Carro</StyledTableCell>
+              <StyledTableCell align="right">Entrada</StyledTableCell>
+              <StyledTableCell align="right">action</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {listCarros && listCarros.length > 0 ? orderBy(listCarros).map((car, index) => (
+              <StyledTableRow key={index} className={classes.contents}>
+                <StyledTableCell component="th" scope="row">
+                  {car.marcaDescricao}
+                </StyledTableCell>
+                <StyledTableCell align="right">{car.placa}</StyledTableCell>
+                <StyledTableCell align="right">{car['index.marca']}</StyledTableCell>
+                <StyledTableCell align="right">{car.anoCarro}</StyledTableCell>
+                <StyledTableCell align="right">{formatDate(car.created)}</StyledTableCell>
+                <StyledTableCell align="right">
+                  <Button variant="contained"
+                    color="secondary"
+                    className={classes.button}
+                    onClick={() => handle.deleteById(car.idCarro)}
+                  >
+                    <DeleteIcon
+                      fontSize="small"
+                    />
+                  </Button>
+                </StyledTableCell>
+              </StyledTableRow>
+            )) : <StyledTableRow>
+                <StyledTableCell align="center"></StyledTableCell>
+                <StyledTableCell align="center"></StyledTableCell>
+                <StyledTableCell align="center">Nenhum Dado Encontrado</StyledTableCell>
+              </StyledTableRow>}
+          </TableBody>
+        </Table>
+      </ReduxBlockUi>
     </Paper>
   );
 }

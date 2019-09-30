@@ -25,16 +25,16 @@ class App extends Component {
     return (
       <Provider store={store}>
 
-        <ReduxBlockUi
+          {/* Rotemento das nossas rotas  */}
+          <BrowserRouter>
+          <ReduxBlockUi
           tag="div"
-          block={[/_PENDING/, /_BLOCK/]}
+          block={[/_PENDING/]}
           unblock={[/_FULFILLED/, /_UNBLOCK/]}
           loader={
             <CircularProgress size={80} thickness={5} color="primary" />
           }
         >
-          {/* Rotemento das nossas rotas  */}
-          <BrowserRouter>
             <Route exact path='/' component={Home} />
             <Route path='/Home' component={Home} />
             {/* passando as pros para o componete */}
@@ -42,9 +42,8 @@ class App extends Component {
             {/* <Route path='/Carros/Cadastrar' render={(props) => <MainCarros {...props} mode='new' />} /> */}
             <Route path='/Carros' component={MainCarros} exact={true} />
             <Route path='/Consultant' component={Consultant} />
-
+            </ReduxBlockUi>
           </BrowserRouter>
-        </ReduxBlockUi>
       </Provider>
     );
   }

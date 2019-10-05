@@ -11,8 +11,8 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
 //blocks
-//import CircularProgress from '@material-ui/core/CircularProgress';
-// import ReduxBlockUi from 'react-block-ui/redux';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import ReduxBlockUi from 'react-block-ui/redux';
 
 //icons 
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -87,12 +87,12 @@ const TableCarros = ({ listCarros, handle }) => {
 
   return (
     <Paper className={classes.root}>
-      {/* <ReduxBlockUi
+      <ReduxBlockUi
         tag='div'
-        block={[/_REJECTED/]}
+        block={[/_REJECTED/ ,/_PENDING/]}
         unblock={[/_FULFILLED/, /_REJECTED/]}
         loader={<CircularProgress size={80} thickness={5} color='primary' />}
-      > */}
+      >
         <Table className={classes.table}>
           <TableHead>
             <TableRow>
@@ -133,7 +133,7 @@ const TableCarros = ({ listCarros, handle }) => {
               </StyledTableRow>}
           </TableBody>
         </Table>
-      {/* </ReduxBlockUi> */}
+      </ReduxBlockUi>
     </Paper>
   );
 }

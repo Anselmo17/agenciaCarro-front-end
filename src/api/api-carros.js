@@ -1,7 +1,7 @@
 // import { httpNoCache } from '../utils/http';
 import axios from 'axios';
 
-const http = `${process.env.API}` || 'http://localhost:8082';
+const http =  'https://agencia-carros-api.herokuapp.com'; //`${process.env.API}` || 'http://localhost:8082';
 
 class CarrosApi {
 

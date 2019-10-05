@@ -89,7 +89,7 @@ const TableCarros = ({ listCarros, handle }) => {
     <Paper className={classes.root}>
       <ReduxBlockUi
         tag='div'
-        block={[/_PENDING/]}
+        block={/_PENDING/}
         unblock={[/_FULFILLED/, /_REJECTED/]}
         loader={<CircularProgress size={80} thickness={5} color='primary' />}
       >

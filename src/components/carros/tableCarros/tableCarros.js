@@ -80,9 +80,12 @@ const TableCarros = ({ listCarros, handle }) => {
   const classes = useStyles();
 
   const formatDate = (date) => {
-    const dateFinally = new Date(date);
-    const response = dateFinally.toLocaleDateString();
-    return response;
+    if (date) {
+      const dateFinally = new Date(date);
+      const response = dateFinally.toLocaleDateString();
+      return response;
+    }
+    return '-';
   }
 
   return (

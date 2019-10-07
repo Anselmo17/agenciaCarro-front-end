@@ -60,15 +60,15 @@ class Home extends Component {
               {/* Cards tela principal */}
               {/* <Paper className={classes.root} style={{ marginTop: '80px' }}> */}
                 <Grid container={true} className={classes.root} spacing={8} >
-                  <Grid item xs={4}>
+                  <Grid item xs={6} sm={6}>
                     <CardsConsultant />
                   </Grid>
-                  <Grid item xs={4}>
+                  <Grid item xs={6} sm={6}>
                     <CardCarros />
                   </Grid>
-                  <Grid item xs={4}>
-                    <CardsConsultant />
-                  </Grid>
+                  {/* <Grid item xs={4} sm={4}>
+                   
+                  </Grid> */}
                 </Grid>
               {/* </Paper> */}
 

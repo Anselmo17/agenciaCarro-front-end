@@ -51,8 +51,9 @@
   },
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.babel.js --open --port 3000 --hot --inline --progress --colors --watch",
-    "testStart": "webpack-dev-server --config webpack.config.dev.babel.js --open --port 3000 --hot --inline --progress --colors --watch",
+    "testBuild": "webpack-dev-server --config webpack.config.dev.babel.js --open --port 3000 --hot --inline --progress --colors --watch",
     "build": "webpack --config webpack.config.prd.babel.js --progress --colors --bail --display-error-details",
+    "build_": "webpack -p bundle.js",
     "startReact": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

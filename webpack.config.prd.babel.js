@@ -8,7 +8,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 // Carregando as variaveis 
 const GLOBALS = {
   'process.env': {
-    NODE_ENV: JSON.stringify('production'),
+    NODE_ENV: JSON.stringify('development'),
     MODULE_NAME: JSON.stringify('CARROS'),
     //PUBLIC_PATH: JSON.stringify(publicPath),
     API: JSON.stringify('https://agencia-carros-api.herokuapp.com'),

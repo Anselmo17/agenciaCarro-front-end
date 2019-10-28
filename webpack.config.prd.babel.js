@@ -99,7 +99,8 @@ export default {
       title: 'Agencia Carros',
       author: 'Agencia',
       template: './public/index.html', //'./src/assets/templates/index.template.ejs', //'./public/index.html',
-      inject: 'body'
+      inject: 'body',
+      minify:false
     }),
     new ExtractTextPlugin({
       filename: 'style.css',

@@ -74,14 +74,14 @@ export default {
               compact: true
             }
           },
-          {
-            test: /(\.css)$/,
-            use: ExtractTextPlugin.extract({
-              fallback: require.resolve('style-loader'),
-              use: require.resolve('css-loader'),
-              publicPath: PATHS.public
-            })
-          },
+          // {
+          //   test: /(\.css)$/,
+          //   use: ExtractTextPlugin.extract({
+          //     fallback: require.resolve('style-loader'),
+          //     use: require.resolve('css-loader'),
+          //     publicPath: PATHS.public
+          //   })
+          // },
           {
             loader: require.resolve('file-loader'),
             exclude: [/\.js$/, /\.ejs$/, /\.html$/, /\.json$/, /\.graphql$/, /\.gql$/],

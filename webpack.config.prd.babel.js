@@ -108,7 +108,9 @@ export default {
     }),
     //otimiza codigo
     new webpack.EnvironmentPlugin(['NODE_ENV']),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin({
+      inline: false
+    })
   ],
   node: {
     dgram: 'empty',

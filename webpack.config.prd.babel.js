@@ -100,7 +100,7 @@ export default {
       author: 'Agencia',
       template: './public/index.html', //'./src/assets/templates/index.template.ejs', //'./public/index.html',
       inject: 'body',
-      minify:false
+      minify: false
     }),
     new ExtractTextPlugin({
       filename: 'style.css',
@@ -109,26 +109,7 @@ export default {
     }),
     //otimiza codigo
     new webpack.optimize.UglifyJsPlugin({
-      mangle: true,
-      unused: true,
-      dead_code: true, // big one--strip code that will never execute
-      warnings: false, // good for prod apps so users can't peek behind curtain
-      drop_debugger: true,
-      conditionals: true,
-      evaluate: true,
-      drop_console: true, // strips console statements
-      sequences: true,
-      booleans: true,
-      compress: {
-        warnings: false, // Suppress uglification warnings
-        pure_getters: true,
-        unsafe: true,
-        unsafe_comps: true,
-        screw_ie8: true
-      },
-      output: {
-        comments: false,
-      },
+      compress: { warnings: false }
     })
   ],
   node: {

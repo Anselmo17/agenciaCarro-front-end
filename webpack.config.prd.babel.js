@@ -107,7 +107,9 @@ export default {
       allChunks: true
     }),
     //otimiza codigo
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true
+    })
   ],
   node: {
     dgram: 'empty',

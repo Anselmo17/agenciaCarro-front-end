@@ -97,7 +97,7 @@ export default {
     new webpack.DefinePlugin(GLOBALS),
     new HtmlWebpackPlugin({
       title: 'Agencia Carros',
-      author: 'Agenccia',
+      author: 'Agencia',
       template: './public/index.html', //'./src/assets/templates/index.template.ejs', //'./public/index.html',
       inject: 'body'
     }),

@@ -107,6 +107,7 @@ export default {
       allChunks: true
     }),
     //otimiza codigo
+    new webpack.EnvironmentPlugin(['NODE_ENV']),
     new webpack.optimize.UglifyJsPlugin()
   ],
   node: {

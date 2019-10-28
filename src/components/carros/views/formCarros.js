@@ -220,7 +220,7 @@ const FormCarros = ({ fields, handle, classes, snack, error }) => {
                 autoHideDuration={3000}
                 onClose={closeSnackBar}
                 ContentProps={{
-                  "aria-describedby": "message-id",
+                  "aria-describe": "message-id",
                 }}
                 message={<span id="message-id">Falha ao cadastrar os campos</span>}
               />

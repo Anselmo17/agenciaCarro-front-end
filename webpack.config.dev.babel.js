@@ -1,51 +1,52 @@
 import webpack from 'webpack';
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-// import HtmlWebpackPlugin from 'html-webpack-plugin';
-// import uuidv1 from 'uuid/v1';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-const publicPath = '/nec/';
+//const publicPath = '/';
 
+// Carregando as variaveis 
 const GLOBALS = {
   'process.env': {
     NODE_ENV: JSON.stringify('development'),
-    MODULE_NAME: JSON.stringify('NEC'),
-    PUBLIC_PATH: JSON.stringify(publicPath),
+    MODULE_NAME: JSON.stringify('CARROS'),
+    //PUBLIC_PATH: JSON.stringify(publicPath),
     API: JSON.stringify('https://agencia-carros-api.herokuapp.com'),
   }
 };
 
 const PATHS = {
-  public: publicPath,
+  public: '/',
   dist: path.resolve(__dirname, './dist'),
   appSrc: path.resolve(__dirname, './src'),
   appNodeModules: path.resolve(__dirname, './node_modules')
 };
 
+
+
+
+// exportando as informações 
 export default {
   devtool: 'eval-source-map',
-  entry: './src/index.js',
+  entry: {
+    index: ['babel-polyfill', './src/index.js']
+  },
   output: {
-    path: PATHS.dist,
-    publicPath: PATHS.public,
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     filename: 'bundle.js'
   },
-  // resolve: {
-  //   extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
-  //   alias: {
-  //     components: path.resolve(__dirname, 'src/components/'),
-  //     containers: path.resolve(__dirname, 'src/containers/'),
-  //     utils: path.resolve(__dirname, 'src/utils/'),
-  //     auth: path.resolve(__dirname, 'src/auth/')
-  //   }
-  // },
+  resolve: {
+    extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx']
+  },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        enforce: 'pre',
-        loader: 'eslint-loader',
-        include: PATHS.appSrc
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        }
       },
       {
         oneOf: [
@@ -67,10 +68,6 @@ export default {
               plugins: [
                 [
                   'react-intl',
-                  {
-                    messagesDir: './extracted-messages/',
-                    enforceDescriptions: true
-                  }
                 ]
               ],
               babelrc: false,
@@ -98,12 +95,12 @@ export default {
   },
   plugins: [
     new webpack.DefinePlugin(GLOBALS),
-    // new HtmlWebpackPlugin({
-    //   title: 'Consultora Natura Empreendedora',
-    //   author: 'Accenture',
-    //   template: './src/assets/templates/index.template.ejs',
-    //   inject: 'body'
-    // }),
+    new HtmlWebpackPlugin({
+      title: 'Agencia Carros',
+      author: 'Agenccia',
+      template: './public/index.html', //'./src/assets/templates/index.template.ejs', //'./public/index.html',
+      inject: 'body'
+    }),
     new ExtractTextPlugin({
       filename: 'style.css',
       disable: false,

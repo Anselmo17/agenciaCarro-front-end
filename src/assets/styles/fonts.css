@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'NaturaSansRegular';
+  src: url('../fonts/NaturaSans-Regular_0.otf');
+}
+
+@font-face {
+  font-family: 'NaturaSansBold';
+  src: url('../fonts/NaturaSans-Bold_0.otf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'NaturaSansLight';
+  src: url('../fonts/NaturaSans-Light_0.otf');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'NaturaScript';
+  src: url('../fonts/NaturaScript_0.otf');
+}
+
+@font-face {
+  font-family: 'NaturaHumor';
+  src: url('../fonts/NaturaHumor_2.otf');
+}

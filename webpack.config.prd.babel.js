@@ -3,14 +3,13 @@ import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-//const publicPath = '/';
 
 // Carregando as variaveis 
 const GLOBALS = {
   'process.env': {
+    // NODE_ENV = declarada com dev , ambiente prod corrigir erro
     NODE_ENV: JSON.stringify('development'),
     MODULE_NAME: JSON.stringify('CARROS'),
-    //PUBLIC_PATH: JSON.stringify(publicPath),
     API: JSON.stringify('https://agencia-carros-api.herokuapp.com'),
   }
 };

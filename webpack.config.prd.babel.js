@@ -107,9 +107,27 @@ export default {
       allChunks: true
     }),
     //otimiza codigo
-    new webpack.EnvironmentPlugin(['NODE_ENV']),
     new webpack.optimize.UglifyJsPlugin({
-      inline: false
+      mangle: true,
+      unused: true,
+      dead_code: true, // big one--strip code that will never execute
+      warnings: false, // good for prod apps so users can't peek behind curtain
+      drop_debugger: true,
+      conditionals: true,
+      evaluate: true,
+      drop_console: true, // strips console statements
+      sequences: true,
+      booleans: true,
+      compress: {
+        warnings: false, // Suppress uglification warnings
+        pure_getters: true,
+        unsafe: true,
+        unsafe_comps: true,
+        screw_ie8: true
+      },
+      output: {
+        comments: false,
+      },
     })
   ],
   node: {

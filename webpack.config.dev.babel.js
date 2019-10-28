@@ -32,7 +32,7 @@ export default {
     index: ['babel-polyfill', './src/index.js']
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, './dist'),
     publicPath: '/',
     filename: 'bundle.js'
   },
